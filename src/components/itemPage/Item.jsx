@@ -8,6 +8,8 @@ import Attribute from './Attribute.jsx';
 import Resource from './Resource.jsx';
 import Header from '../Header.jsx';
 import { DiscussionEmbed } from 'disqus-react';
+import { t, Trans } from '@lingui/macro';
+import { i18n } from "../../index.js"
 
 const HIDDEN = ['topic', 'resource', 'thumbnail', 'item'];
 
@@ -37,17 +39,18 @@ class Item extends Component {
         <Header conf={conf} />
         <div className="Status row h5">
           <Link to="/" className="badge badge-pill badge-light TopicTag">
-            <span className="badge badge-pill badge-dark oi oi-chevron-left"> </span> Retour à l'accueil
+            <span className="badge badge-pill badge-dark oi oi-chevron-left"> </span>
+            <Trans>Retour à l'accueil</Trans>
           </Link>
         </div>
         <div className="container-fluid">
           <div className="App-content row">
             <div className="col-md-4 p-4">
               <div className="Description">
-                <h2 className="h4 font-weight-bold text-center">Description</h2>
+                <h2 className="h4 font-weight-bold text-center"><Trans>Description</Trans></h2>
                 <div className="p-3">
                   <div className="Attributes">
-                    <h3 className="h4">Attributs du document</h3>
+                    <h3 className="h4"><Trans>Attributs du document</Trans></h3>
                     <hr/>
                     <div>
                       {attributes}
@@ -168,9 +171,9 @@ class Item extends Component {
       }
     }
 
-    var placeholder="Ajouter un attribut et une valeur...";
+    var placeholder= t`Ajouter un attribut et une valeur...`;
     if (this.state.attributeInputFocus) {
-      placeholder="attribut : valeur";
+      placeholder= t`attribut : valeur`;
     }
 
     return (
@@ -179,7 +182,7 @@ class Item extends Component {
           <input ref={(input) => this.attributeInput=input} value={this.state.attributeInputValue}
             onChange={attributeInputChange} onKeyDown={attributeInputChangeKeyDown}
             onFocus={attributeInputFocus} onBlur={attributeInputBlur}
-            id="new-attribute" className="form-control" placeholder={placeholder} type="text" />
+            id="new-attribute" className="form-control" placeholder={i18n._(placeholder)} type="text" />
         </div>
         <div className="input-group-append">
           <button type="button" className="btn btn-sm ValidateButton btn"
@@ -263,7 +266,7 @@ class Item extends Component {
 
 
   _removeTopic = async (topicToDelete) => {
-    if (window.confirm('Voulez-vous réellement que l\'item affiché ne soit plus décrit à l\'aide de cette rubrique ?')) {
+    if (window.confirm(i18n._(t`Voulez-vous réellement que l'item affiché ne soit plus décrit à l'aide de cette rubrique ?`))) {
       return new Hypertopic((await conf).services)
         .item({
           _id: this.props.match.params.item,

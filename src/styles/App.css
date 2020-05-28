@@ -3,8 +3,8 @@
 }
 
 .App header {
-  background-color: #8b0000;
-  color: ivory;
+  background-color: #094068;
+  color: white;
   margin-bottom: 0;
 }
 
@@ -21,8 +21,8 @@ h1 a, h1 a:hover {
 }
 
 .Status {
-  background-color: rgb(60, 50, 50);
-  color: ivory;
+  background-color: white;
+  color: #0e63a1;
   padding: 4px;
 }
 
@@ -37,11 +37,11 @@ h1 a, h1 a:hover {
 }
 
 .Search input {
-  background: dimgrey;
+  border-color: #0e63a1;
 }
 
 .Search ::placeholder {
-  color: lightgrey;
+  color: #0E63A1;
 }
 
 .App-content {
@@ -53,17 +53,17 @@ h1 a, h1 a:hover {
 }
 
 .Subject h2, .Description h2 {
-  color: ivory;
+  color: white;
   margin: 0;
   padding: .5rem;
 }
 
 .Subject h2 {
-  background-color: dimgrey;
+  background-color: #0e63a1;
 }
 
 .Description h2 {
-  background-color: #8b0000;
+  background-color: #2094c1;
 }
 
 .cursor-zoom {
